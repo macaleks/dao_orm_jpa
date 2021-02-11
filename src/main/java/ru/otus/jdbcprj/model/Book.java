@@ -3,6 +3,9 @@ package ru.otus.jdbcprj.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,6 +27,8 @@ public class Book {
 
     @OneToOne(targetEntity = Author.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_author")
+    @Fetch(FetchMode.SELECT)
+    @BatchSize(size = 5)
     private Author author;
 
     @OneToOne(targetEntity = Genre.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
