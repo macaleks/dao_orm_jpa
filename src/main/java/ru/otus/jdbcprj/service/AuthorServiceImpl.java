@@ -1,7 +1,7 @@
 package ru.otus.jdbcprj.service;
 
 import org.springframework.stereotype.Service;
-import ru.otus.jdbcprj.dao.AuthorDao;
+import ru.otus.jdbcprj.dao.AuthorRepositoryJpa;
 import ru.otus.jdbcprj.model.Author;
 
 import java.util.List;
@@ -9,14 +9,14 @@ import java.util.List;
 @Service
 public class AuthorServiceImpl implements AuthorService {
 
-    private final AuthorDao authorDao;
+    private final AuthorRepositoryJpa authorRepositoryJpa;
 
-    public AuthorServiceImpl(AuthorDao authorDao) {
-        this.authorDao = authorDao;
+    public AuthorServiceImpl(AuthorRepositoryJpa authorRepositoryJpa) {
+        this.authorRepositoryJpa = authorRepositoryJpa;
     }
 
     @Override
     public List<Author> getAll() {
-        return authorDao.getAll();
+        return authorRepositoryJpa.getAll();
     }
 }

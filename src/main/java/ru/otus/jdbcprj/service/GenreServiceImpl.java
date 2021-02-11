@@ -1,7 +1,7 @@
 package ru.otus.jdbcprj.service;
 
 import org.springframework.stereotype.Service;
-import ru.otus.jdbcprj.dao.GenreDao;
+import ru.otus.jdbcprj.dao.GenreRepositoryJpa;
 import ru.otus.jdbcprj.model.Genre;
 
 import java.util.List;
@@ -9,15 +9,15 @@ import java.util.List;
 @Service
 public class GenreServiceImpl implements GenreService {
 
-    private final GenreDao genreDao;
+    private final GenreRepositoryJpa genreRepositoryJpa;
 
-    public GenreServiceImpl(GenreDao genreDao) {
-        this.genreDao = genreDao;
+    public GenreServiceImpl(GenreRepositoryJpa genreRepositoryJpa) {
+        this.genreRepositoryJpa = genreRepositoryJpa;
     }
 
 
     @Override
     public List<Genre> getAll() {
-        return genreDao.getAll();
+        return genreRepositoryJpa.getAll();
     }
 }

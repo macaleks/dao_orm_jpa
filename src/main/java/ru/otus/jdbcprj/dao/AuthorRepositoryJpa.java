@@ -4,7 +4,7 @@ import ru.otus.jdbcprj.model.Author;
 
 import java.util.List;
 
-public interface AuthorDao {
+public interface AuthorRepositoryJpa {
 
     List<Author> getAll();
 

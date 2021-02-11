@@ -9,13 +9,13 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-public class AuthorDaoImpl implements AuthorDao {
+public class AuthorRepositoryJpaImpl implements AuthorRepositoryJpa {
 
     @PersistenceContext
     private final EntityManager em;
 
 
-    public AuthorDaoImpl(EntityManager entityManager) {
+    public AuthorRepositoryJpaImpl(EntityManager entityManager) {
         this.em = entityManager;
     }
 

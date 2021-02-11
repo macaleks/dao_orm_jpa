@@ -4,7 +4,7 @@ import ru.otus.jdbcprj.model.Genre;
 
 import java.util.List;
 
-public interface GenreDao {
+public interface GenreRepositoryJpa {
 
     List<Genre> getAll();
 

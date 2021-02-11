@@ -1,7 +1,6 @@
 package ru.otus.jdbcprj.dao;
 
 import org.springframework.stereotype.Repository;
-import ru.otus.jdbcprj.model.Author;
 import ru.otus.jdbcprj.model.Genre;
 
 import javax.persistence.EntityManager;
@@ -11,12 +10,12 @@ import java.util.List;
 
 @SuppressWarnings({"SqlNoDataSourceInspection", "ConstantConditions", "SqlDialectInspection"})
 @Repository
-public class GenreDaoImpl implements GenreDao {
+public class GenreRepositoryJpaImpl implements GenreRepositoryJpa {
 
     @PersistenceContext
     private final EntityManager em;
 
-    public GenreDaoImpl(EntityManager em) {
+    public GenreRepositoryJpaImpl(EntityManager em) {
         this.em = em;
     }
 
