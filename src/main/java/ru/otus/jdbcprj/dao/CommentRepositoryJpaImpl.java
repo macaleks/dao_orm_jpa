@@ -6,7 +6,6 @@ import ru.otus.jdbcprj.model.Comment;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -21,10 +20,10 @@ public class CommentRepositoryJpaImpl implements CommentRepositoryJpa {
 
     @Override
     public List<Comment> findByBookId(long id) {
-        TypedQuery<Comment> query = em.createQuery("select c from Comment c join fetch c.book " +
-                "where c.book.id = :id", Comment.class);
-        query.setParameter("id", id);
-        return query.getResultList();
+        Book book = em.find(Book.class, id);
+        return em.createQuery("select c from Comment c where c.book = :book")
+                .setParameter("book", book)
+                .getResultList();
     }
 
     @Override
